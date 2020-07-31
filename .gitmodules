@@ -1,3 +1,4 @@
 [submodule "maps"]
 	path = maps
 	url = https://github.com/rootown/maps.git
+	branch = master
