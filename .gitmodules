@@ -2,3 +2,7 @@
 	path = maps
 	url = https://github.com/rootown/maps.git
 	branch = master
+[submodule "dining"]
+	path = dining
+	url = https://github.com/rootown/dining.git
+	branch = master
