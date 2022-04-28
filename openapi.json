@@ -12,6 +12,9 @@
     "tags": [
         {
             "name": "maps.uakron.edu"
+        },
+        {
+            "name": "akron.campusdish.com"
         }
     ],
     "paths": {
@@ -21,7 +24,7 @@
                     "maps.uakron.edu"
                 ],
                 "summary": "Data about buildings",
-                "operationId": "buildingdata",
+                "operationId": "getBuildingData",
                 "responses": {
                     "200": {
                         "description": "JSON file containing building data",
@@ -42,7 +45,7 @@
                     "maps.uakron.edu"
                 ],
                 "summary": "Data about the departments",
-                "operationId": "departments",
+                "operationId": "getDepartments",
                 "responses": {
                     "200": {
                         "description": "JSON file containing department data",
@@ -63,7 +66,7 @@
                     "maps.uakron.edu"
                 ],
                 "summary": "Data about on-campus parking lots",
-                "operationId": "parkinglots",
+                "operationId": "getParkingLots",
                 "responses": {
                     "200": {
                         "description": "JSON file containing data about on-campus parking lots",
@@ -71,6 +74,27 @@
                             "application/json": {
                                 "schema": {
                                     "$ref": "#/components/schemas/ParkingLots"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/dining/locations.json": {
+            "get": {
+                "tags": [
+                    "akron.campusdish.com"
+                ],
+                "summary": "Data about on-campus dining locations",
+                "operationId": "getDiningLocations",
+                "responses": {
+                    "200": {
+                        "description": "JSON file containing data about dining locations",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/DiningLocations"
                                 }
                             }
                         }
@@ -195,6 +219,28 @@
                     }
                 },
                 "required":["id","name","public"]            
+            },
+            "DiningLocations": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "required": [
+                        "name",
+                        "status",
+                        "times"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "status": {
+                            "type": "string"
+                        },
+                        "times": {
+                            "type": "string"
+                        }
+                    }
+                }
             },
             "Department": {
                 "title": "University of Akron Department Data",
